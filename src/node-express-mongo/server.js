@@ -16,7 +16,8 @@ const test_query = {
       $geometry:{
         coordinates: [-76.139049321, 43.052123288],
         type: 'Point'
-      }
+      },
+      $maxDistance: 1000,
     }
   }
 }
@@ -44,16 +45,38 @@ app.get('/', (req, res) => {
 });
 
 // add a document to the DB collection recording the click event
-app.post('/clicked', (req, res) => {
-  const click = {clickTime: new Date()};
-  console.log(click);
-  console.log(db);
-
-  db.collection('clicks').save(click, (err, result) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log('click added to db');
-    res.sendStatus(201);
-  });
+app.get('/crime', (req, res) => {
+  console.log(test_query)
+  findDocuments(db, "weekly_crime", test_query, res);
 });
+
+app.get('/water_break', (req, res) => {
+  console.log(test_query)
+  findDocuments(db, "water_main_breaks", test_query, res);
+});
+
+app.get('/lead_violations', (req, res) => {
+  console.log(test_query)
+  findDocuments(db, "lead_violations", test_query, res);
+});
+
+app.get('/code_violations', (req, res) => {
+  console.log(test_query)
+  findDocuments(db, "code_violations", test_query, res);
+});
+
+var findDocuments = function(db, coll, query={}, res) {
+    // Get the documents collection
+    var collection = db.collection(coll);
+    // Find some documents
+    const result = collection.find(query).toArray(function(err, docs) {
+      assert.equal(err, null);
+      console.log("Found the following records");
+      console.log(JSON.stringify(docs).length)
+      res.send(docs)
+    });
+  }
+
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}

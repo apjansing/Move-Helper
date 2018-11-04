@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <body onload="loadDefault()">
-        
-        <h2>Cookie JS Debug Page</h2>
-        
-        <p id="demo">A Paragraph.</p>
-        
-        <button type="button" onclick="allMe()">Alert Current State</button>
-        <button type="button" onclick="makeDefaultCookie()">Make DefaultCookie</button>
-        <button type="button" onclick="alertCookieValues()">Alert All Cookies</button>
-        <button type="button" onclick="deleteCookie()">Try Delete</button>
-        <button type="button" onclick="updateCookie()">TryUpdate</button>
-         <button type="button" onclick="createSavedChecklist()">Try2D</button>
-         <button type="button" onclick="loadTwoDCookie()">Try2D load</button>
-</br>
-<button type="button" onclick="populateDynamicDiv()">TryDynamicLoad</button>
-
-         <p></p>
-        <input type="checkbox" name="item1" value="firstThing" id="0" onclick="boxChecked(this)"> Thing 1 to do<br>
-            <input type="checkbox" name="item2" value="secondThing"id="1"onclick="boxChecked(this)"> Thing 2 to do <br>
-                <button onclick=updateCookie()> SaveCookie </button>
-                
-                </p>
-                <h3> Dynamic Test</h3>
-                <div id="dynamicTest" >
-                    
-                    </div>
-                <script src="cookies.js"> </script>
-                
-                </body>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/resultsPage.css">
+    <title>MoveHelper's Results</title>
+  </head>
+  <body onload="loadDefault()">
+      <div id="header">
+        <img id="logo" src="resource/logo/logo.png" alt="MoveHelper">
+        <p id="name">The app that helps you make best move</p>
+      </div>
+    
+      <div id="content">
+        <div id="mapDiv">/*PUT MAP HERE*/</div>
+        <div id="resultsDiv">
+          <div id="searchDiv">
+            <form class="search"></form>
+              <input id="searchField" placeholder="Search for specific data?" type="text">
+              <button class="button-class" id="search">Search</button>
+          </form>
+            <button class="button-class" id="reset" onclick="deleteCookie()">Reset Checklist</button>
+          </div>
+          <div class="category" id="crimes" onclick="clearDiv()">
+            <!-- <p class="caption">Crime</p> -->
+            <img class="captionPhoto" src="resource/logo/handcuffs.png" alt="Crime">
+          </div>
+          <div class="category" id="water_break" onclick="clearDiv()">
+            <!-- <p class="caption">Water Main Leak</p> -->
+            <img class="captionPhoto" src="resource/logo/leak.png" alt="Water Main Leak">
+          </div>
+          <div class="category" id="lead" onclick="clearDiv()">
+              <!-- <p class="caption">Lead Violations</p> -->
+              <img class="captionPhoto" src="resource/logo/pblead.png" alt="Pb">
+          </div>
+          <div class="category" id="codeViolations" onclick="clearDiv()">
+              <!-- <p class="caption">Code Violations</p> -->
+              <img class="captionPhoto" src="resource/logo/notepad.png" alt="Code Violations">
+          </div>
+          <div class="category" id="checklist" onclick="loadDefault()">
+            <!-- <p class="caption">Placeholder</p> -->
+            <img class="captionPhoto" src="resource/logo/checklist.png" alt="Checklist">
+          </div>
+          <div id="info">
+              <p id="dynamicTest">Here is where info goes when you select a residency, You can see info on Code violations, Lead pipes, Water Main Breaks, and Weekly Crime rates!<br/>
+              Pick a location and click any of the tabs to get started!
+              <br/>
+              Alternatively, check out the getting started checklist for a list of things to consider when moving to the area!
+              </p>
+          </div>
+        </div>
+      </div> 
+    
+      <script type="text/javascript" src="client.js"></script>
+      <script src="cookies.js"></script>
+    </body>
+  
 </html>
-

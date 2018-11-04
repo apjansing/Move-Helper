@@ -37,17 +37,17 @@ body {
 }
 
 #mapDiv {
-    position:absolute;
+    /* position:absolute; */
     grid-column: 1/2;
     height: 70%;
-    width:45%;
+    /* width:45%; */
     margin-left: 10px;
     margin-right: 10px;
     top:25%;
 }
 
 #resultsDiv {
-    position:absolute;
+    /* position:absolute; */
     grid-column: 2/3;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
