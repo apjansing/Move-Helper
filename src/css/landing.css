@@ -11,7 +11,7 @@ body,
 }
 
 .cover {
-    background-image: url(bootstrap-4.1.3-dist/Images/syracuse-city-skyline-1100x733.jpg);
+    background-image: url(https://www.syracuse.edu/wp-content/uploads/syracuse-city-skyline-1100x733.jpg);
     background-size: cover;
     width:  100%;
     padding:  20%;
@@ -53,24 +53,24 @@ body,
 .navbar {
     background: transparent;
 }
-.nav-link , 
-.navbar-brand{ 
-    color: #f4f4f4; 
+.nav-link ,
+.navbar-brand{
+    color: #f4f4f4;
     cursor: pointer;
 }
-.nav-link{ 
+.nav-link{
     margin-right: 1em !important;
 }
 .nav-link:hover{
-    background: #f4f4f4; 
+    background: #f4f4f4;
     color: #0000;
     opacity: 50%;
     font-weight: bolder;
 }
-.navbar-collapse{ 
+.navbar-collapse{
     justify-content: flex-end;
 }
-.navbar-toggler{  
+.navbar-toggler{
     background:#fff; !important;
 }
 
