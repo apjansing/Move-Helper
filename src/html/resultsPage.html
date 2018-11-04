@@ -1,20 +1,24 @@
 <!doctype html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/resultsPage.css">
   <title>MoveHelper's Results</title>
 </head>
 <body onload="loadDefault()">
   <div id="header">
     <img id="logo" src="../../resource/logo/logo.png" alt="MoveHelper">
+    <p id="name">The app that helps you make best move</p>
   </div>
 
   <div id="content">
     <div id="mapDiv">/*PUT MAP HERE*/</div>
     <div id="resultsDiv">
       <div id="searchDiv">
-        <input id="searchField" placeholder="Search for specific data?" type="test">
-        <button class="button-class" id="search">Search</button>
+        <form class="search"></form>
+          <input id="searchField" placeholder="Search for specific data?" type="text">
+          <button class="button-class" id="search">Search</button>
+      </form>
         <button class="button-class" id="reset" onclick="deleteCookie()">Reset Checklist</button>
       </div>
       <div class="category" id="crimes" onclick="clearDiv()">
