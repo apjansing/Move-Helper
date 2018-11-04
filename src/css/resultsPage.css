@@ -10,6 +10,7 @@ body {
     height:auto;
     background:#655335;
     margin-bottom: 10px;
+    box-shadow: 0px 8px #766446;
 }
 
 #logo {
@@ -26,14 +27,13 @@ body {
     font-family:arial;
 }
 
-
 #mapDiv {
     position:absolute;
     grid-column: 1/2;
-    height: 60%;
+    height: 70%;
     width:45%;
-    /* left:2.5%; */
-    margin-left: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
     top:25%;
 }
 
@@ -43,10 +43,7 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 0.5fr 1fr 10px 5fr;
-    height:60%;
-    width:45%;
     right:2.5%;
-    /* background:#655335; */
     top:25%;
     border:2px solid #655335;
     box-shadow: 2px 3px #aaa;
@@ -127,10 +124,10 @@ body {
 }
 
 .captionPhoto {
-    position:absolute;
+    /* position:absolute; */
     grid-row: 1/2;
-    height: 90px;
-    width:  90px;
+    height: 80px;
+    width:  auto;
     margin: 10px;
     padding: 2px;
 }
