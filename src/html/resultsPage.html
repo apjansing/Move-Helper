@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="../css/resultsPage.css">
   <title>MoveHelper's Results</title>
 </head>
-<body onload="loadDefault()">
+<body>
   <div id="header">
     <img id="logo" src="../../resource/logo/logo.png">
     <p id="name">MoveHelper</p>
@@ -13,23 +13,23 @@
   <button id="searchButton">Search</button>
   <div id="mapDiv">       /*PUT MAP HERE*/        </div>
   <div id="resultsDiv">
-    <div id="weatherHazards">
+    <div id="weatherHazards" onclick = "clearDiv()">
       <p class="caption"><mark>Natural Disasters</mark></p>
       <img class="captionPhoto" src="../../resource/logo/lightning.jpg">
     </div>
-    <div id="crimes">
+    <div id="crimes" onclick = "clearDiv()">
       <p class="caption"><mark>Crime</mark></p>
       <img class="captionPhoto" src="../../resource/logo/thief.jpg">
     </div>
-    <div id="snowfall">
+    <div id="snowfall" onclick = "clearDiv()">
       <p class="caption"><mark>Snowfall/Plow</mark></p>
       <img class="captionPhoto" src="../../resource/logo/snowflake.jpg">
     </div>
-    <div id="codeViolations">
+    <div id="codeViolations" onclick = "clearDiv()">
       <p class="caption"><mark>Code Violations</mark></p>
       <img class="captionPhoto" src="../../resource/logo/scroll.jpg">
     </div>
-    <div id="checklist">
+    <div id="checklist" onclick="loadDefault()">
       <p class="caption"><mark>Placeholder</mark></p>
     </div>
     <div id="info">

@@ -148,4 +148,8 @@ function populateDynamicDiv(){
             //currentState[i].i
         }
 }
+function clearDiv()
+{
+    document.getElementById("dynamicTest").innerHTML = "";
+}
 
