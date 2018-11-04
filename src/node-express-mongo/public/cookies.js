@@ -185,6 +185,18 @@ function clearDiv()
     document.getElementById("dynamicTest").innerHTML = "";
 }
 
+function populateWater(){
+     document.getElementById("dynamicTest").innerHTML = "This is where Water info goes!";
+}
+function populatePB(){
+     document.getElementById("dynamicTest").innerHTML = "There might be Lead in your pipes. Check when you move in!";
+}
+function populateCrime(){
+     document.getElementById("dynamicTest").innerHTML = "Every Area has crime. Does yours? Check here!";
+}
+function codeViol(){
+     document.getElementById("dynamicTest").innerHTML = "Watch out for Code Violations! This tab shows you info about houses around you and public violations. ";
+}
 function getSearchCoord(){
     var thisFeild = document.getElementById("search").value;
     var arrAsJson = JSON.stringify(thisFeild);
