@@ -2,13 +2,12 @@ body {
     margin:0;
     background-image:linear-gradient(45deg, #eee, #ddd);
     height: 1vh;
-    font-family: 'Roboto', sans-serif;
 }
 
 #header{
-    position: relative;
+    position: absolute;
     width:100%;
-    height:200px;
+    height:auto;
     background:#655335;
     margin-bottom: 10px;
     box-shadow: 0px 8px #766446;
@@ -22,18 +21,10 @@ body {
     margin: 5px;
 }
 
-#name{
-    color: #2ECC71;
-    font-size: 2em;
-    position: relative;
-    float: right;
-    margin-right: 10px;
-    top:140px;
-}
-
 #content{
     display: grid;
     grid-template-columns: 1.62fr 1fr;
+    font-family:arial;
 }
 
 #mapDiv {
@@ -43,7 +34,9 @@ body {
     width:45%;
     margin-left: 10px;
     margin-right: 10px;
-    top:25%;
+    left:50px;
+    top:30%;
+    border: 2px solid #655335;
 }
 
 #resultsDiv {
@@ -60,7 +53,7 @@ body {
 
 #searchDiv{
     position:absolute;
-    grid-row: 1/2;  
+    grid-row: 1/2;
     display: grid;
     grid-template-columns: 4fr 1fr 1fr;
     margin: 5px;
@@ -72,13 +65,8 @@ body {
 
 .button-class {
     border:0 solid white;
-    background: #ddd;
     margin: 2px;
     box-shadow: 1px 1px;
-}
-
-.button-class:hover {
-    background: #fff;
 }
 
 #search{
@@ -88,16 +76,9 @@ body {
 #reset{
     grid-column: 3/4;
 }
-
 .category{
     grid-template-rows: 100px 20px;
-    border:1px solid #655335;
-}
-
-.category:hover{
-    grid-template-rows: 100px 20px;
-    border:1px solid #756549;
-    background: #eee;
+    border:1px dashed #655335;
 }
 
 #crimes {
@@ -130,6 +111,7 @@ body {
     display: grid;
     grid-column: 1/6;
     grid-row: 3/4;
+    font-family:arial;
     background: #eee;
 }
 
@@ -143,7 +125,7 @@ body {
 }
 
 .captionPhoto {
-    display: inline;
+    /* position:absolute; */
     grid-row: 1/2;
     height: 80px;
     width:  auto;
