@@ -122,6 +122,14 @@ function loadTwoDCookie() {
 function clickForAlert(){
     alert("hello world");
 }
+function createHandler(i) {
+    // The value of `i` is local to this variable scope
+    
+    // Return your handler function, which accesses the scoped `i` variable
+    return function() {
+        alert("i: " +  i);
+    }
+}
 function populateDynamicDiv(){
     var thisArr = loadTwoDCookie();
     var listHolder = document.getElementById("dynamicTest");
@@ -131,8 +139,13 @@ function populateDynamicDiv(){
             checkBox.type = "checkbox";
             checkBox.value = thisArr[i].Task;
             checkBox.id = thisArr[i].id;
+            if(thisArr[i].isChecked!= 0){
+                checkBox.checked = true;
+                
+            }
+            //checkBox.checked = thisArr[i].isChecked;
             //todo pass an arg below
-            checkBox.onclick = clickForAlert;
+            checkBox.addEventListener("click", createHandler(thisArr[i].id), false);
             listHolder.appendChild(checkBox);
             alert("This should append ");
             listHolder.appendChild(label);
