@@ -11,14 +11,21 @@
         <button type="button" onclick="alertCookieValues()">Alert All Cookies</button>
         <button type="button" onclick="deleteCookie()">Try Delete</button>
         <button type="button" onclick="updateCookie()">TryUpdate</button>
-        <p></p>
+         <button type="button" onclick="createSavedChecklist()">Try2D</button>
+         <button type="button" onclick="loadTwoDCookie()">Try2D load</button>
+</br>
+<button type="button" onclick="populateDynamicDiv()">TryDynamicLoad</button>
+
+         <p></p>
         <input type="checkbox" name="item1" value="firstThing" id="0" onclick="boxChecked(this)"> Thing 1 to do<br>
             <input type="checkbox" name="item2" value="secondThing"id="1"onclick="boxChecked(this)"> Thing 2 to do <br>
                 <button onclick=updateCookie()> SaveCookie </button>
                 
-                
-                
                 </p>
+                <h3> Dynamic Test</h3>
+                <div id="dynamicTest" >
+                    
+                    </div>
                 <script src="cookies.js"> </script>
                 
                 </body>
