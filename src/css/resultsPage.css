@@ -50,67 +50,96 @@
 
 #resultsDiv {
     position:absolute;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 10px 5fr;
     height:60%;
     width:45%;
     right:2.5%;
-    background:white;
+    background:#655335;
     top:30%;
     border:2px solid #655335;
 }
 
 #weatherHazards {
-    position:absolute;
-    height:15%;
+    position: relative;
+    display: grid;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    /* height:15%;
     top:0;
     width:20%;
-    left:0;
+    left:0; */
     background:#655335;
 }
 
 #crimes {
-    position:absolute;
+    position: relative;
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    /* position:absolute;
     height:15%;
     top:0;
     width:20%;
-    left:20%;
+    left:20%; */
     background:#655335;
 }
 
 #snowfall {
-    position:absolute;
+    position: relative;
+    display: grid;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    /* position:absolute;
     height:15%;
     top:0;
     width:20%;
-    left:40%;
+    left:40%; */
     background:#655335;
 }
 
 #codeViolations {
-    position:absolute;
+    position: relative;
+    display: grid;
+    grid-column: 4/5;
+    grid-row: 1/2;
+    /* position:absolute;
     height:15%;
     top:0;
     width:20%;
-    left:60%;
+    left:60%; */
     background:#655335;
 }
 
-#numberFive {
-    position:absolute;
+#checklist {
+    position: relative;
+    display: grid;
+    grid-column: 5/6;
+    grid-row: 1/2;
+    /* position:absolute;
     height:15%;
     top:0;
     width:20%;
-    left:80%;
+    left:80%; */
     background:#655335;
 }
 
 
 #info {
-    position:absolute;
+    position: relative;
+    display: grid;
+    grid-column: 1/6;
+    grid-row: 3/4;
+    /* position:absolute;
     height:85%;
     top:15%;
     width:95%;
-    left:2.5%;
+    left:2.5%; */
     font-family:arial;
+    background: #eee;
+    padding: 2px;
+    padding-top: 15px;
 }
 
 .caption {
@@ -122,16 +151,20 @@
     font-family:arial;
     left:12.5%;
     font-size:12px;
+    text-align: center;
     z-index:99;
 }
 
 .captionPhoto {
     position:absolute;
-    height:95%;
-    opacity:.9;
+    height: 90px;
+    width:  90px;
+    margin: 10px;
+    padding: 2px;
+    /* opacity:.9;
     width:95%;
     left:2.5%;
-    top:2.5%;
+    top:2.5%; */
 }
 
 mark {
