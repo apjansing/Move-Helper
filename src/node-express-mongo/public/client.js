@@ -12,10 +12,14 @@ let code_violations = null;
 
 button.addEventListener('click', function(e) {
   console.log('button was clicked');
-  const search_field = document.getElementById('searchField').value;
-  console.log(search_field);
+  let search_field = document.getElementById('searchField').value.split(',');
+  for(let i = 0; i < search_field.length; i = i + 1){
+    search_field[i] = parseFloat(search_field[i]);
+  }
+  console.log(search_field)
+
   fetch('/crime', {method: 'GET'})
-    .then(function(response) {
+    .then(function(response, search_field) {
       if(response.ok) {
         lead_violations = response.json()
         console.log(lead_violations)
@@ -28,7 +32,7 @@ button.addEventListener('click', function(e) {
     });
 
     fetch('/water_break', {method: 'GET'})
-    .then(function(response) {
+    .then(function(response, search_field) {
       if(response.ok) {
         lead_violations = response.json()
         console.log(lead_violations)
@@ -41,7 +45,7 @@ button.addEventListener('click', function(e) {
     });
 
     fetch('/lead_violations', {method: 'GET'})
-    .then(function(response) {
+    .then(function(response, search_field) {
       if(response.ok) {
         lead_violations = response.json()
         console.log(lead_violations)
@@ -54,7 +58,7 @@ button.addEventListener('click', function(e) {
     });
 
     fetch('/code_violations', {method: 'GET'})
-    .then(function(response) {
+    .then(function(response, search_field) {
       if(response.ok) {
         lead_violations = response.json()
         console.log(lead_violations)
@@ -72,11 +76,13 @@ search_box.addEventListener('keypress', function(e) {
   var key = e.which || e.keyCode;
   if (key === 13) { // 13 is enter
     console.log('button was clicked');
-    const search_field = document.getElementById('searchField').value;
-    console.log(search_field);
+    let search_field = document.getElementById('searchField').value.split(',');
+    for(let i = 0; i < search_field.length; i = i + 1){
+      search_field[i] = parseFloat(search_field[i]);
+    }
     
     fetch('/crime', {method: 'GET'})
-    .then(function(response) {
+    .then(function(response, search_field) {
       if(response.ok) {
         lead_violations = response.json()
         console.log(lead_violations)
@@ -89,7 +95,7 @@ search_box.addEventListener('keypress', function(e) {
     });
 
     fetch('/water_break', {method: 'GET'})
-    .then(function(response) {
+    .then(function(response, search_field) {
       if(response.ok) {
         lead_violations = response.json()
         console.log(lead_violations)
@@ -102,7 +108,7 @@ search_box.addEventListener('keypress', function(e) {
     });
 
     fetch('/lead_violations', {method: 'GET'})
-    .then(function(response) {
+    .then(function(response, search_field) {
       if(response.ok) {
         lead_violations = response.json()
         console.log(lead_violations)
@@ -115,7 +121,7 @@ search_box.addEventListener('keypress', function(e) {
     });
 
     fetch('/code_violations', {method: 'GET'})
-    .then(function(response) {
+    .then(function(response, search_field) {
       if(response.ok) {
         lead_violations = response.json()
         console.log(lead_violations)

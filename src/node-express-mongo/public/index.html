@@ -1,6 +1,194 @@
 <!DOCTYPE html>
 <html>
   <head>
+        <style>
+                html,
+                body,
+                #map {
+                   height: 100%;
+                   width: 100%;
+                   margin: 0;
+                   padding: 0;
+                }
+                .shadow {
+                   box-shadow: 0 0 5px #888;
+                }
+                #map {
+                   margin: 0;
+                   padding: 0;
+                }
+                #feedback {
+                   background: #fff;
+                   color: #444;
+                   position: absolute;
+                   /* font-family: arial; */
+                   height: 125px;
+                   right: 50px;
+                   margin: 5px;
+                   padding: 10px;
+                   top: 10px;
+                   width: 190px;
+                   z-index: 40;
+                }
+                #note {
+                   font-size: 80%;
+                   font-weight: 700;
+                   padding: 0 0 10px 0;
+                }
+               
+               /* Add a black background color to the top navigation bar */
+          /* .topnav {
+              overflow: hidden;
+              background-color: #e9e9e9;
+          } */
+          
+          /* Style the links inside the navigation bar */
+          /* .topnav a {
+              float: left;
+              display: block;
+              color: black;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+              font-size: 17px;
+          }
+          
+          /* Change the color of links on hover */
+          /* .topnav a:hover {
+              background-color: #ddd;
+              color: black;
+          } */
+          
+          /* Style the "active" element to highlight the current page */
+          /* .topnav a.active {
+              background-color: #2196F3;
+              color: white;
+          } */
+          
+          /* Style the search box inside the navigation bar */
+          /*.topnav input[type=text] {
+              float: left;
+              padding: 6px;
+              border: none;
+              margin-top: 8px;
+              margin-right: 16px;
+              font-size: 17px;
+          } */
+          
+          /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+          @media screen and (max-width: 600px) {
+              .topnav a, .topnav input[type=text] {
+                  float: none;
+                  display: block;
+                  text-align: left;
+                  width: 100%;
+                  margin: 0;
+                  padding: 14px;
+              }
+              .topnav input[type=text] {
+                  border: 1px solid #ccc;
+              }
+          }
+        </style>
+
+        <script src="https://js.arcgis.com/3.26/"></script>
+        <script>
+          var home = "629 Dewitt St, Syracuse, New York";
+            
+           require([
+             "esri/map",
+             "esri/dijit/Search",
+             "esri/symbols/Font",
+             "esri/geometry/Point",
+             "esri/SpatialReference",
+              "esri/symbols/SimpleMarkerSymbol",
+             "esri/symbols/PictureMarkerSymbol",
+              "esri/symbols/SimpleLineSymbol",
+             "esri/Color",
+             "esri/symbols/TextSymbol",
+             "dijit/registry",
+             "dijit/form/Button",
+             "dojo/parser",
+             "dijit/layout/BorderContainer",
+             "dijit/layout/ContentPane",
+             "dojo/domReady!"
+           ], function (
+                 Map, Search, Font, Point, SpatialReference, SimpleMarkerSymbol, PictureMarkerSymbol, SimpleLineSymbol, Color, TextSymbol, registry, Button, parser)
+                   {
+                 parser.parse();
+            
+             
+                 var map = new Map("map", {
+                    basemap: "streets-navigation-vector",
+                    center: [-76.147453,43.047939], // lon, lat
+                    zoom: 11
+                 });
+     
+                 //Do not provide a srcNode dom for the Search widget as the UI is not displayed.
+        
+     
+                 var search = new Search({
+                    enableLabel: true,
+                    enableInfoWindow: false,
+                    map: map
+                 }, "");
+     
+                 search.startup();
+     
+                 registry.byId("searchValue").on("click", doSearchValue);
+     
+                 function doSearchGeo() {
+                    //create point from x/y and perform the search on it
+     
+                    var geo = new Point(-76.1335, 43.0652, new SpatialReference({
+                       wkid: 4326
+                    }));
+     
+                    //highlight symbol
+                    var symbol = new PictureMarkerSymbol("esri_icon.png", 20, 20);
+     
+                    //labeling text symbol
+                    var ls = new TextSymbol().setColor(new Color([181, 56, 46, 0.9])).setFont(new Font("24px", Font.STYLE_NORMAL, Font.VARIANT_NORMAL, Font.WEIGHT_BOLD, "Arial")).setOffset(11, -5).setAlign(TextSymbol.ALIGN_START);
+     
+                    //No sources are explicitely set so will default to ArcGIS Online World geocoding service
+                    search.sources[0].highlightSymbol = symbol; //set the symbol for the highlighted symbol
+                    search.sources[0].labelSymbol = ls; //set the text symbol for the label
+     
+                    //performs a reverse geocode
+                    search.search(geo);
+                 }
+     
+                 function doSearchValue() {
+     
+                    //highlight symbol
+                    var sms = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 12,
+                       new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
+                          new Color([255, 0, 0]), 0.8),
+                       new Color([0, 0, 0, 0.35]));
+     
+                    //label text symbol
+                    var ls = new TextSymbol().setColor(new Color([0, 0, 0, 0.9])).setFont(new Font("16px", Font.STYLE_NORMAL, Font.VARIANT_NORMAL, Font.WEIGHT_BOLD, "Arial")).setOffset(15, -5).setAlign(TextSymbol.ALIGN_START);
+     
+                    search.sources[0].highlightSymbol = sms; //set the symbol for the highlighted symbol
+                    search.sources[0].labelSymbol = ls; //set the text symbol for the label
+     
+                    //If multiple results are found, it will default and select the first.
+     
+                    search.search(home);
+                   
+                 }
+     
+              }
+           );
+        </script>
+
+
+
+
+
+
+
+
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/resultsPage.css">
     <title>MoveHelper's Results</title>
@@ -8,11 +196,30 @@
   <body onload="loadDefault()">
       <div id="header">
         <img id="logo" src="resource/logo/logo.png" alt="MoveHelper">
-        <p id="name">The app that helps you make best move</p>
+        <p id="name">The app that helps you make the best move</p>
       </div>
     
       <div id="content">
-        <div id="mapDiv">/*PUT MAP HERE*/</div>
+        <div id="mapDiv" class="tundra" onload="demo()">
+            <div style="width: 100%; height: 100%; margin: 0;">
+                <div id="map">
+                    <div id="feedback" class="shadow">
+                        <div id="info">
+                            <div id="note">
+                                Search by area
+                            </div>
+                        <div>
+                            <input type="text" placeholder="My address">
+                        </div>
+                        <br/>
+                        <button id="searchValue" data-dojo-type="dijit/form/Button">Search by value
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="resultsDiv">
           <div id="searchDiv">
             <form class="search"></form>

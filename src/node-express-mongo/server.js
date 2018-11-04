@@ -6,7 +6,8 @@ var MongoClient = require('mongodb').MongoClient,
 
   const app = express();
   
-  
+var x = -76.139049321;
+var y = 43.052123288;
   
 // Connection URL
 const url = 'mongodb://localhost:27017/syr';
@@ -14,7 +15,7 @@ const test_query = {
   location:{
     $near:{
       $geometry:{
-        coordinates: [-76.139049321, 43.052123288],
+        coordinates: [x, y],
         type: 'Point'
       },
       $maxDistance: 1000,
