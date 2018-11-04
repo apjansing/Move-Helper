@@ -142,7 +142,7 @@ function populateDynamicDiv(){
             //todo pass an arg below
             checkBox.addEventListener("click", createHandler(thisArr[i].id), false);
             listHolder.appendChild(checkBox);
-            alert("This should append ");
+            //alert("This should append ");
             listHolder.appendChild(label);
            label.appendChild(document.createTextNode(thisArr[i].Task));
             linebreak = document.createElement("br");
@@ -169,7 +169,7 @@ function populateDynamicDiv(){
             //todo pass an arg below
             checkBox.addEventListener("click", createHandler(currentState[i].id), false);
             listHolder.appendChild(checkBox);
-            alert("This should append ");
+            //alert("This should append ");
             listHolder.appendChild(label);
             label.appendChild(document.createTextNode(currentState[i].Task));
             linebreak = document.createElement("br");
