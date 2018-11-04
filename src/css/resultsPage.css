@@ -1,0 +1,46 @@
+#header {
+    position:absolute;
+    height:15%;
+    width:100%;
+    top:0;
+    left:0;
+    background:#655335;
+}
+
+#logo {position:absolute;
+    height:95%;
+    top:2.5%;
+    left:.5%;
+}
+
+#name{position:absolute;left:17%;font-size:200%;font-family:courier;color:#2ECC71;}
+
+#searchField {position:absolute; height:5%;top:24%;width:20%;right:15.5%;}
+
+#searchButton {position:absolute; height:5.75%;top:24%;width:5%;right:10%;color:#2ECC71;background-color:#655335;border:0 solid white;}
+
+#mapDiv {position:absolute; height:60%; width:45%;left:2.5%;top:30%;}
+
+#resultsDiv {position:absolute; height:60%; width:45%; right:2.5%;background:white;top:30%;border:2px solid #655335;}
+
+#weatherHazards {position:absolute;height:15%;top:0;width:20%;left:0;background:#655335;}
+
+#crimes {position:absolute;height:15%;top:0;width:20%;left:20%;background:#655335;}
+
+#snowfall {position:absolute;height:15%;top:0;width:20%;left:40%;background:#655335;}
+
+#codeViolations {position:absolute;height:15%;top:0;width:20%;left:60%;background:#655335;}
+
+#numberFive {position:absolute;height:15%;top:0;width:20%;left:80%;background:#655335;}
+
+#caption {position:absolute;color:black;width:87.5%; height:1%;bottom:0;font-family:arial;left:12.5%;font-size:12px;z-index:99;}
+
+#info {position:absolute;height:85%;top:15%;width:95%;left:2.5%;font-family:arial;}
+
+#captionPhoto {position:absolute;height:95%;opacity:.9;width:95%;left:2.5%;top:2.5%;}
+
+mark {background-color:white;}
+
+html{height: 100%;}
+
+body {margin:0;background-repeat:no-repeat;background-image:radial-gradient(yellow, lightblue, skyblue);}
