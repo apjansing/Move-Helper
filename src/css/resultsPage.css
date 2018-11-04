@@ -1,183 +1,136 @@
-#header {
-    position:absolute;
-    height:15%;
+body {
+    margin:0;
+    background-image:linear-gradient(45deg, #eee, #ddd);
+    height: 1vh;
+}
+
+#header{
+    position: absolute;
     width:100%;
-    top:0;
-    left:0;
+    height:auto;
     background:#655335;
+    margin-bottom: 10px;
 }
 
-#logo {position:absolute;
-    height:95%;
-    top:2.5%;
-    left:.5%;
+#logo {
+    position: relative;
+    float: left;
+    height: 175px;
+    width: auto;
+    margin: 5px;
 }
 
-#name{
-    position:absolute;
-    left:17%;
-    font-size:200%;
-    font-family:courier;
-    color:#2ECC71;
+#content{
+    display: grid;
+    grid-template-columns: 1.62fr 1fr;
+    font-family:arial;
 }
 
-#searchField {
-    position:absolute;
-    height:5%;
-    top:24%;
-    width:20%;
-    right:15.5%;
-}
-
-#searchButton {
-    position:absolute;
-    height:5.75%;
-    top:24%;
-    width:5%;
-    right:10%;
-    color:#2ECC71;
-    background-color:#655335;
-    border:0 solid white;
-}
 
 #mapDiv {
     position:absolute;
-    height:60%;
+    grid-column: 1/2;
+    height: 60%;
     width:45%;
-    left:2.5%;
-    top:30%;
+    /* left:2.5%; */
+    margin-left: 40px;
+    top:25%;
 }
 
 #resultsDiv {
     position:absolute;
+    grid-column: 2/3;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 10px 5fr;
+    grid-template-rows: 0.5fr 1fr 10px 5fr;
     height:60%;
     width:45%;
     right:2.5%;
-    background:#655335;
-    top:30%;
+    /* background:#655335; */
+    top:25%;
     border:2px solid #655335;
+    box-shadow: 2px 3px #aaa;
+}
+
+#searchDiv{
+    position:absolute;
+    grid-row: 1/2;  
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    margin: 5px;
+}
+
+#searchField {
+    grid-column: 1/2;
+}
+
+.button-class {
+    border:0 solid white;
+    margin: 2px;
+    box-shadow: 1px 1px;
+}
+
+#search{
+    grid-column: 2/3;
+}
+
+#reset{
+    grid-column: 3/4;
+}
+.category{
+    grid-template-rows: 100px 20px;
+    border:1px dashed #655335;
 }
 
 #weatherHazards {
-    position: relative;
-    display: grid;
     grid-column: 1/2;
-    grid-row: 1/2;
-    /* height:15%;
-    top:0;
-    width:20%;
-    left:0; */
-    background:#655335;
+    grid-row: 2/3;
 }
 
 #crimes {
-    position: relative;
-    display: grid;
     grid-column: 2/3;
-    grid-row: 1/2;
-    /* position:absolute;
-    height:15%;
-    top:0;
-    width:20%;
-    left:20%; */
-    background:#655335;
+    grid-row: 2/3;
 }
 
 #snowfall {
-    position: relative;
-    display: grid;
     grid-column: 3/4;
-    grid-row: 1/2;
-    /* position:absolute;
-    height:15%;
-    top:0;
-    width:20%;
-    left:40%; */
-    background:#655335;
+    grid-row: 2/3;
 }
 
 #codeViolations {
-    position: relative;
-    display: grid;
     grid-column: 4/5;
-    grid-row: 1/2;
-    /* position:absolute;
-    height:15%;
-    top:0;
-    width:20%;
-    left:60%; */
-    background:#655335;
+    grid-row: 2/3;
 }
 
 #checklist {
     position: relative;
-    display: grid;
     grid-column: 5/6;
-    grid-row: 1/2;
-    /* position:absolute;
-    height:15%;
-    top:0;
-    width:20%;
-    left:80%; */
-    background:#655335;
+    grid-row: 2/3;
 }
 
 
 #info {
-    position: relative;
     display: grid;
     grid-column: 1/6;
     grid-row: 3/4;
-    /* position:absolute;
-    height:85%;
-    top:15%;
-    width:95%;
-    left:2.5%; */
     font-family:arial;
     background: #eee;
-    padding: 2px;
-    padding-top: 15px;
 }
 
 .caption {
-    position:absolute;
+    position: relative;
+    display: grid;
     color:black;
-    width:87.5%;
-    height:1%;
-    bottom:0;
-    font-family:arial;
-    left:12.5%;
+    grid-row: 1/2;
     font-size:12px;
-    text-align: center;
-    z-index:99;
+    justify-content: baseline;
 }
 
 .captionPhoto {
     position:absolute;
+    grid-row: 1/2;
     height: 90px;
     width:  90px;
     margin: 10px;
     padding: 2px;
-    /* opacity:.9;
-    width:95%;
-    left:2.5%;
-    top:2.5%; */
-}
-
-mark {
-    background-color:white;
-}
-
-html{
-    height: 100%;
-}
-
-body {
-    margin:0;
-    background-repeat:no-repeat;
-    /* background-image:radial-gradient(yellow, lightblue, skyblue); */
-    background-image:linear-gradient(45deg, #eee, #ddd);
 }
