@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="../css/resultsPage.css">
   <title>MoveHelper's Results</title>
 </head>
-<body>
+<body onload="loadDefault()">
   <div id="header">
     <img id="logo" src="../../resource/logo/logo.png">
     <p id="name">MoveHelper</p>
@@ -29,14 +29,14 @@
       <p class="caption"><mark>Code Violations</mark></p>
       <img class="captionPhoto" src="../../resource/logo/scroll.jpg">
     </div>
-    <div id="numberFive">
+    <div id="checklist">
       <p class="caption"><mark>Placeholder</mark></p>
     </div>
     <div id="info">
-      <p id="writtenInfo">Here is a sample of our information. This is where all of our info will go based off of user's input (exclusively Syracuse).</p>
+      <p id="dynamicTest"></p>
     </div>
   </div>
-  
+   <script src="../js/cookies.js"> </script>
   
   
 </body>

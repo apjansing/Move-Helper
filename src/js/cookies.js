@@ -93,7 +93,7 @@ function loadTwoDCookie() {
         }
         if (c.indexOf(name) == 0) {
             var parsed = JSON.parse(c.substring(name.length, c.length));
-            alert("Results of 2D Parse:" + parsed[0].isChecked + ", Task: " + parsed[0].Task );
+          //  alert("Results of 2D Parse:" + parsed[0].isChecked + ", Task: " + parsed[0].Task );
             
             return parsed;
             
@@ -116,7 +116,7 @@ function createHandler(i) {
         else{
             currentState[i].isChecked = 0;
         }
-        alert("i now: " +  currentState[i].isChecked);
+        //alert("i now: " +  currentState[i].isChecked);
         updateCookie();
     }
 }
@@ -137,7 +137,7 @@ function populateDynamicDiv(){
             //todo pass an arg below
             checkBox.addEventListener("click", createHandler(thisArr[i].id), false);
             listHolder.appendChild(checkBox);
-            alert("This should append ");
+            //alert("This should append ");
             listHolder.appendChild(label);
            label.appendChild(document.createTextNode(thisArr[i].Task));
             linebreak = document.createElement("br");
