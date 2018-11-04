@@ -22,6 +22,7 @@ function getCookie() {
     return 1;
 }
 function loadDefault(){
+    clearDiv();
     var stringTemp = loadTwoDCookie();
     if(stringTemp == ""){
         createSavedChecklist();
@@ -37,7 +38,8 @@ function loadDefault(){
 }
 
 function deleteCookie(){
-    document.cookie = "checklistState=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "twoDArrayB=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    loadDefault();
 }
 function updateCookie(){
     var arrAsJson = JSON.stringify(currentState);
@@ -59,21 +61,22 @@ function boxChecked(chkBox){
 
 function createSavedChecklist(){
     var twoDSave = [
-                    { isChecked: '1', Task: 'doX', id: 0 },
-                    { isChecked: '0', Task: 'doY', id: 1 },
-                    { isChecked: '0', Task: 'doZ', id: 2 },
-                    { isChecked: '0', Task: 'do3', id: 3 },
-                    { isChecked: '0', Task: 'do4', id: 4 },
-                    { isChecked: '0', Task: 'do5', id: 5 },
-                    { isChecked: '0', Task: 'do6', id: 6 },
-                    { isChecked: '0', Task: 'do7', id: 7 },
-                    { isChecked: '0', Task: 'do8', id: 8 },
-                    { isChecked: '0', Task: 'do9', id: 9 },
-                    { isChecked: '0', Task: 'do10', id: 10 },
-                    { isChecked: '0', Task: 'do11', id: 11 },
-                    { isChecked: '0', Task: 'do12', id: 12 },
-                    { isChecked: '0', Task: 'do13', id: 13 },
-                    { isChecked: '1', Task: 'do14', id: 14 }
+                    { isChecked: '0', Task: 'Determine how much a month you want to spend on your housing', id: 0 },
+                    { isChecked: '0', Task: 'Determine if you want to have roommates', id: 1 },
+                    { isChecked: '0', Task: 'Hold Your mail about one month before moving', id: 2 },
+                    { isChecked: '0', Task: 'Create a short list of apartments you might want to tour', id: 3 },
+                    { isChecked: '0', Task: 'Visit some Apartments or houses in the area', id: 4 },
+                    { isChecked: '0', Task: 'Save for the first months rent', id: 5 },
+                    { isChecked: '0', Task: 'Save for the safety deposit', id: 6 },
+                    { isChecked: '0', Task: 'Take a look at the surrounding areas school district', id: 7 },
+                    { isChecked: '0', Task: 'Look at the surrounding areas entertainment options (What do you like to do)', id: 8 },
+                    { isChecked: '0', Task: 'Look in the surrounding area for Food Options(Where will you eat / buy groceries)', id: 9 },
+                    { isChecked: '0', Task: 'Do you have pets? what is the fee to have them in your new neighborhood', id: 10 },
+                    { isChecked: '0', Task: 'Will you need to buy furniture?', id: 11 },
+                    { isChecked: '0', Task: 'Will you need to buy kitchen supplies (Glasses, pans, etc)', id: 12 },
+                    { isChecked: '0', Task: 'Get information about gas, electric and internet hookup', id: 13 },
+                    { isChecked: '0', Task: 'Contact the DMV and change your registered address', id: 14 },
+                    { isChecked: '0', Task: 'How will your things be moving to your new place (Movers? Friends and beer?)', id: 15 }
                                ];
 var arrAsJson = JSON.stringify(twoDSave);
      document.cookie = "twoDArrayB = " + arrAsJson + "; expires=Thu, 31 Dec 2020 12:00:00 UTC; path=/";
@@ -121,6 +124,7 @@ function createHandler(i) {
     }
 }
 function populateDynamicDiv(){
+    if(currentState.length== 0){
     var thisArr = loadTwoDCookie();
     var listHolder = document.getElementById("dynamicTest");
         for (var i = 0; i < thisArr.length; i++) {
@@ -137,7 +141,7 @@ function populateDynamicDiv(){
             //todo pass an arg below
             checkBox.addEventListener("click", createHandler(thisArr[i].id), false);
             listHolder.appendChild(checkBox);
-            //alert("This should append ");
+            alert("This should append ");
             listHolder.appendChild(label);
            label.appendChild(document.createTextNode(thisArr[i].Task));
             linebreak = document.createElement("br");
@@ -147,7 +151,34 @@ function populateDynamicDiv(){
            // isChecked: '1', Task: 'doX', id: 0
             //currentState[i].i
         }
+    }
+    else{
+        var listHolder = document.getElementById("dynamicTest");
+        for (var i = 0; i < currentState.length; i++) {
+            var checkBox = document.createElement("input");
+            var label = document.createElement("label");
+            checkBox.type = "checkbox";
+            checkBox.value = currentState[i].Task;
+            checkBox.id = currentState[i].id;
+            if(currentState[i].isChecked!= 0){
+                checkBox.checked = true;
+                
+            }
+            //checkBox.checked = thisArr[i].isChecked;
+            //todo pass an arg below
+            checkBox.addEventListener("click", createHandler(currentState[i].id), false);
+            listHolder.appendChild(checkBox);
+            alert("This should append ");
+            listHolder.appendChild(label);
+            label.appendChild(document.createTextNode(currentState[i].Task));
+            linebreak = document.createElement("br");
+            listHolder.appendChild(linebreak);
+            // isChecked: '1', Task: 'doX', id: 0
+            //currentState[i].i
+        }
+    }
 }
+
 function clearDiv()
 {
     document.getElementById("dynamicTest").innerHTML = "";

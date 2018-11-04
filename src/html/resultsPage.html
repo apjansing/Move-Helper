@@ -8,13 +8,14 @@
   <div id="header">
     <img id="logo" src="../../resource/logo/logo.png" alt="MoveHelper">
   </div>
+
   <div id="content">
     <div id="mapDiv">/*PUT MAP HERE*/</div>
     <div id="resultsDiv">
       <div id="searchDiv">
         <input id="searchField" placeholder="Search for specific data?" type="test">
         <button class="button-class" id="search">Search</button>
-        <button class="button-class" id="reset">Reset Checklist</button>
+        <button class="button-class" id="reset" onclick="deleteCookie()">Reset Checklist</button>
       </div>
       <div class="category" id="crimes" onclick="clearDiv()">
         <!-- <p class="caption">Crime</p> -->
@@ -37,10 +38,15 @@
         <img class="captionPhoto" src="../../resource/logo/checklist.png" alt="Checklist">
       </div>
       <div id="info">
-        <p id="dynamicTest"></p>
+          <p id="dynamicTest">Here is where info goes when you select a residency, You can see info on Code violations, Lead pipes, Water Main Breaks, and Weekly Crime rates!</br></br>
+          Pick a location and click any of the tabs to get started!
+          </br></br>
+          Alternetly, check out the getting started checklist for a list of things to consider when moving to the area!
+          </p>
       </div>
     </div>
   </div> 
+
    <script src="../js/cookies.js"> </script>
   
   
