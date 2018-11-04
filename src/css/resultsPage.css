@@ -79,17 +79,16 @@ body {
     border:1px dashed #655335;
 }
 
-#weatherHazards {
+#crimes {
     grid-column: 1/2;
     grid-row: 2/3;
 }
 
-#crimes {
+#water_break {
     grid-column: 2/3;
     grid-row: 2/3;
 }
-
-#snowfall {
+#lead {
     grid-column: 3/4;
     grid-row: 2/3;
 }
