@@ -39,6 +39,7 @@ function loadDefault(){
 
 function deleteCookie(){
     document.cookie = "twoDArrayB=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    currentState = [];
     loadDefault();
 }
 function updateCookie(){
