@@ -22,55 +22,26 @@ function getCookie() {
     return 1;
 }
 function loadDefault(){
-    
+    var stringTemp = loadTwoDCookie();
+    if(stringTemp == ""){
+        createSavedChecklist();
+        populateDynamicDiv();
+    }
+    else{
+        populateDynamicDiv();
+    }
     var loadedState = getCookie();
     var split = JSON.parse(loadedState);
-    
-   // alert("getCookie.split result: " + split.toString());
-    //alert("split 0: " + split[0]);
-    //alert("split 1: " + split[1]);
-    
-    //  alert("Cookie: " + arrayQ);
-    if(split[0] ==1){
-//        alert("spot0 = 1" );
-        currentState[0] = 1;
-        document.getElementById("0").checked = true;
-    }
-    else{
-  //      alert("spot0 = 0" );
+    //populateDynamicDiv()
 
-        currentState[0]=0;
-        document.getElementById("0").checked = false;
-    }
-    if(split[1] ==1){
-    //    alert("spot1 = 1" );
-
-        currentState[1] = 1;
-        
-        document.getElementById("1").checked = true;
-    }
-    else{
-     //   alert("spot1 = 0" );
-
-        currentState[1]=0;
-        
-        document.getElementById("1").checked = false;
-    }
 }
-function makeDefaultCookie(){
-    var array = [0,0];
-    var arrAsJson = JSON.stringify(array);
-    document.cookie = "checklistState = " + arrAsJson + "; expires=Thu, 31 Dec 2020 12:00:00 UTC; path=/";
-}
+
 function deleteCookie(){
     document.cookie = "checklistState=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
-function alertCookieValues() {
-    alert(decodeURIComponent(document.cookie));
-}
 function updateCookie(){
     var arrAsJson = JSON.stringify(currentState);
-    document.cookie = "checklistState = " + arrAsJson + "; expires=Thu, 31 Dec 2020 12:00:00 UTC; path=/";
+    document.cookie = "twoDArrayB = " + arrAsJson + "; expires=Thu, 31 Dec 2020 12:00:00 UTC; path=/";
 }
 
 
@@ -88,17 +59,29 @@ function boxChecked(chkBox){
 
 function createSavedChecklist(){
     var twoDSave = [
-                               { isChecked: '0', Task: 'doX', id: 0 },
-                               { isChecked: '0', Task: 'doY', id: 1 },
-                               { isChecked: '1', Task: 'doZ', id: 2 }
+                    { isChecked: '1', Task: 'doX', id: 0 },
+                    { isChecked: '0', Task: 'doY', id: 1 },
+                    { isChecked: '0', Task: 'doZ', id: 2 },
+                    { isChecked: '0', Task: 'do3', id: 3 },
+                    { isChecked: '0', Task: 'do4', id: 4 },
+                    { isChecked: '0', Task: 'do5', id: 5 },
+                    { isChecked: '0', Task: 'do6', id: 6 },
+                    { isChecked: '0', Task: 'do7', id: 7 },
+                    { isChecked: '0', Task: 'do8', id: 8 },
+                    { isChecked: '0', Task: 'do9', id: 9 },
+                    { isChecked: '0', Task: 'do10', id: 10 },
+                    { isChecked: '0', Task: 'do11', id: 11 },
+                    { isChecked: '0', Task: 'do12', id: 12 },
+                    { isChecked: '0', Task: 'do13', id: 13 },
+                    { isChecked: '1', Task: 'do14', id: 14 }
                                ];
 var arrAsJson = JSON.stringify(twoDSave);
-     document.cookie = "twoDArray = " + arrAsJson + "; expires=Thu, 31 Dec 2020 12:00:00 UTC; path=/";
+     document.cookie = "twoDArrayB = " + arrAsJson + "; expires=Thu, 31 Dec 2020 12:00:00 UTC; path=/";
 }
 
 
 function loadTwoDCookie() {
-    var name = "twoDArray=";
+    var name = "twoDArrayB=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
     //
@@ -123,11 +106,18 @@ function clickForAlert(){
     alert("hello world");
 }
 function createHandler(i) {
-    // The value of `i` is local to this variable scope
-    
-    // Return your handler function, which accesses the scoped `i` variable
+    //thank you stack overflow
     return function() {
-        alert("i: " +  i);
+        var state = currentState[i].isChecked;
+        if(state == 0){
+            currentState[i].isChecked = 1;
+            
+        }
+        else{
+            currentState[i].isChecked = 0;
+        }
+        alert("i now: " +  currentState[i].isChecked);
+        updateCookie();
     }
 }
 function populateDynamicDiv(){
@@ -152,7 +142,10 @@ function populateDynamicDiv(){
            label.appendChild(document.createTextNode(thisArr[i].Task));
             linebreak = document.createElement("br");
             listHolder.appendChild(linebreak);
-            
+            currentState.push(new Array(3));
+            currentState[i] = thisArr[i];
+           // isChecked: '1', Task: 'doX', id: 0
+            //currentState[i].i
         }
 }
 
